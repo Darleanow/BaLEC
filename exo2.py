@@ -1,3 +1,4 @@
+import utils
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -5,7 +6,7 @@ import matplotlib.pyplot as plt
 print("Python so sloooooooooooooooooooooooooooooooooooooooooow")
 
 # Get the data from the CSV file
-data = pd.read_csv('base-des-lieux-et-des-equipements-culturels.csv', delimiter=';', header=0, low_memory=False)
+data = utils.get_df()
 
 # Debugging: Print initial columns
 print("Initial columns:", data.columns)
