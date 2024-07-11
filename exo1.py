@@ -1,8 +1,9 @@
-import pandas as pd
+import utils
 from prettytable import PrettyTable
+import pandas as pd
 
 # Read the CSV file
-data = pd.read_csv('base-des-lieux-et-des-equipements-culturels.csv', delimiter=';', header=0, low_memory=False)
+data = utils.get_df()
 
 # Select relevant columns
 selected_columns = ['type_equipement_ou_lieu', 'departement', 'n_departement', 'nombre_fauteuils_de_cinema']
