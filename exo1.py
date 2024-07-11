@@ -28,15 +28,23 @@ grouped_data = data_cinema.groupby('n_departement').agg({
 # Sort the grouped data by region number (n_departement)
 grouped_data_sorted = grouped_data.sort_values(by='n_departement')
 
-# Use PrettyTable to display the grouped and summed data
+# Use PrettyTable to display the grouped and summed data with orange tones
 table = PrettyTable()
 
-# Set the column names for PrettyTable
-table.field_names = ['Departement', 'N_Departement', 'Total Cinema Seats']
+# Set the column names for PrettyTable with ANSI color codes for orange
+table.field_names = [
+    '\033[38;5;214mDepartement\033[0m', 
+    '\033[38;5;214mN_Departement\033[0m', 
+    '\033[38;5;214mTotal Cinema Seats\033[0m'
+]
 
-# Add rows to the table
+# Add rows to the table with ANSI color codes for orange
 for index, row in grouped_data_sorted.iterrows():
-    table.add_row([row['departement'], row['n_departement'], row['nombre_fauteuils_de_cinema']])
+    table.add_row([
+        f'\033[38;5;214m{row["departement"]}\033[0m', 
+        f'\033[38;5;214m{row["n_departement"]}\033[0m', 
+        f'\033[38;5;214m{row["nombre_fauteuils_de_cinema"]}\033[0m'
+    ])
 
 # Print the table
 print(table)
